@@ -1,0 +1,141 @@
+/* front page */
+
+.front_page_container {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    z-index: -1;
+}
+
+.front_page_cover {
+    position: absolute;
+    padding: 20px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-image: linear-gradient(to left top, rgb(45, 220, 214), transparent), linear-gradient(to right bottom, rgb(45, 220, 214), transparent);
+}
+
+.front_page_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.front_page_logos {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.front_page_logos .img {
+    height: 100px;
+    width: 100px;
+}
+
+.front_page_logos .img:first-child {
+    margin-left: 50px;
+}
+
+.front_page_logos .img:nth-child(2) {
+    height: 150px;
+    width: 150px;
+}
+
+.front_page_logos .img:last-child {
+    margin-right: 50px;
+}
+
+.front_page_title {
+    margin: 20px 20px;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.front_page_title.inicio {
+    font-size: 45px;
+}
+
+.front_page_phrase {
+    margin: 0 10px;
+    text-align: center;
+    color: rgb(105, 105, 105);
+    font-size: 25px;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 732px) {
+    .front_page_title.inicio {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 732px) {
+    .front_page_title.inicio {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 505px) {
+    .front_page_logos .img:nth-child(2) {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    .front_page_logos .img {
+        height: 65px;
+        width: 65px;
+    }
+    .front_page_logos .img:nth-child(2) {
+        height: 65px;
+        width: 65px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .front_page_cover {
+        padding: 10px 5px 5px 5px;
+    }
+    .front_page_logos {
+        flex-direction: column;
+        align-items: center;
+        height: 140px;
+        width: 70px;
+        margin-bottom: 10px;
+    }
+    .front_page_title.inicio {
+        font-size: 20px;
+    }
+    .front_page_title.unidades {
+        font-size: 30px;
+    }
+    .front_page_phrase {
+        font-size: 20px;
+    }
+    .front_page_logos .img:first-child {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    .front_page_logos .img:nth-child(2) {
+        margin-bottom: 10px;
+    }
+    .front_page_logos .img:last-child {
+        margin-right: 20px;
+    }
+}
+
+
+/* End front page */

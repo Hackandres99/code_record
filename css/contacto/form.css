@@ -1,0 +1,69 @@
+/* Formulario de contacto*/
+
+.form_contact {
+    width: 62%;
+    padding: 30px 40px;
+}
+
+.form_contact_title {
+    font-size: 25px;
+    font-weight: 600;
+    color: #303030;
+    margin-bottom: 30px;
+}
+
+.user_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user_info_title {
+    font-weight: 600;
+}
+
+.message {
+    width: 100%;
+    height: 260px;
+    padding: 8px 0px 5px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #D1D1D1;
+    font-family: 'Open sans';
+    color: #5A5A5A;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.message.correct {
+    border-bottom-color: #2196F3;
+}
+
+.message.incorrect {
+    border-bottom-color: #F14B4B;
+}
+
+.form_contact_btn {
+    align-self: flex-end;
+    width: 180px;
+    background: #4091EC;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form_contact_btn:hover {
+    opacity: .85;
+}
+
+
+/* Responsive web design */
+
+@media screen and (max-width:800px) {
+    .form_contact {
+        width: 100%;
+    }
+}

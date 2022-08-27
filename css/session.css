@@ -1,0 +1,121 @@
+:root {
+    --colorTextos: #49454567;
+}
+
+.container.session {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to top right, #FCDE30, #E9712A, #D2313B, #AE4198, #7540A1, #5443A8);
+    font-family: 'Poppins', sans-serif;
+    padding-top: 100px;
+}
+
+.form {
+    background: #fff;
+    max-width: 270px;
+    padding: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+    margin: auto;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form_title {
+    color: rgb(80, 80, 80);
+    text-align: center;
+    margin: 10px 0;
+    font-weight: 800;
+}
+
+.form_title.recuperar {
+    margin: 10px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.form_group {
+    position: relative;
+    margin: 45px;
+}
+
+.form_input {
+    background: none;
+    color: #c6c6c6;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--colorTextos);
+    resize: none;
+}
+
+.form_input:focus {
+    outline: none;
+    color: rgb(94, 93, 93);
+}
+
+.form_input:focus~.form_label,
+.form_input:valid~.form_label {
+    position: absolute;
+    top: -14px;
+    font-size: 12px;
+    color: #2196F3;
+}
+
+.form_label {
+    color: var(--colorTextos);
+    font-size: 18px;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    transition: 0.5s ease all;
+    pointer-events: none;
+}
+
+.form_input:focus~.form_bar::before {
+    width: 100%;
+}
+
+.form_bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.form_bar::before {
+    content: '';
+    height: 2px;
+    width: 0%;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(to right, #6A82FB, #FC5C7D);
+    transition: 0.3s ease all;
+    left: 0%;
+}
+
+.form_link {
+    font-size: 15px;
+    color: #2196F3;
+}
+
+.form_link:hover {
+    text-decoration: underline;
+}
+
+.form_btn {
+    background: linear-gradient(to right, #6A82FB, #FC5C7D);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 10px auto;
+    cursor: pointer;
+}

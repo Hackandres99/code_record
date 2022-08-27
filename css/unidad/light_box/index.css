@@ -1,0 +1,38 @@
+.lightbox {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 80px;
+    left: 0;
+    background-color: rgba(0, 0, 0, .7);
+    transform: translateX(100%);
+    transition: transform .4s ease-in;
+}
+
+.move {
+    transform: translateX(0);
+    z-index: 3;
+}
+
+.lightbox__container {
+    display: grid;
+    grid-template: 7fr 100px 65px / 1fr 8fr 1fr;
+    gap: 0 16.5%;
+    height: 90%;
+    transition: width .2s .4s, height .2s .4s;
+}
+
+.lightbox__main__video {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    object-fit: cover;
+    transition: all .2s .4s;
+}
+
+.appear {
+    transform: scale(1);
+}

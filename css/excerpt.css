@@ -1,0 +1,89 @@
+/* Excerpt container */
+
+.excerpt_container {
+    width: 1000px;
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.excerpt {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 40px;
+    box-shadow: -10px 0 20px -30px black;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+}
+
+.excerpt:before {
+    content: '';
+    width: 100%;
+    height: 6px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #46a2fd;
+}
+
+.excerpt_secondary_title {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 25px;
+    color: #333;
+}
+
+.excerpt_paragraph {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #3c3c3c;
+}
+
+.introductory_video_container {
+    width: 800px;
+    height: 500px;
+    margin-top: 20px;
+    border: 3px solid rgb(35, 138, 194);
+}
+
+.introductory_video {
+    width: 100%;
+    height: 100%;
+}
+
+.excerpt img {
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+/* End excerpt container */
+
+@media screen and (max-width: 1220px) {
+    .excerpt_container {
+        max-width: 1000px;
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    .excerpt_container {
+        width: 100%;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .excerpt_main_title {
+        font-size: 30px;
+    }
+    .excerpt_secondary_title {
+        font-weight: 500;
+    }
+}
