@@ -1,5 +1,5 @@
 <?php
-    error_reporting(0);
+    // error_reporting(0);
     require_once './phpCrud/signlog_in_modelo.php';
     session_start();
     $signlog = new Signlog_in_modelo();
@@ -37,15 +37,14 @@
             <?php
                 include 'layouts/base/header.php';
                 switch ($pagina) {
-                    case 'unidades':
-                    case 'unidad':
-                    case 'unidad1':
-                    case 'unidad2':
-                    case 'unidad3':
-                    case 'unidad4':
-                    case 'unidad5':
-                    case 'unidad6':
-                        include 'layouts/unidades/menu.php';
+                    case 'materias':
+                    case 'materia':
+                    case 'algorithm':
+                    case 'design':
+                    case 'coding':
+                    case 'database':
+                    case 'networks':
+                        include 'layouts/materias/menu.php';
                     break;
                 }
             ?> 
@@ -53,15 +52,14 @@
             <div id="container" class="container 
                 <?php 
                     switch ($pagina) {
-                        case 'unidades': 
-                        case 'unidad':
-                        case 'unidad1':
-                        case 'unidad2':
-                        case 'unidad3':
-                        case 'unidad4':
-                        case 'unidad5':
-                        case 'unidad6':
-                            echo 'unidades'; 
+                        case 'materias':
+                            case 'materia':
+                            case 'algorithm':
+                            case 'design':
+                            case 'coding':
+                            case 'database':
+                            case 'networks':
+                            echo 'materias'; 
                         break;
 
                         case 'session': case 'registrarse': 

@@ -1,10 +1,10 @@
 <?php
-    function make_thumbnail_container($pagina, $pIsUnidad, $theresAnAccount, $id, $img_src,
+    function make_thumbnail_container($pagina, $pIsMateria, $theresAnAccount, $id, $img_src,
      $video_src, $title, $creation_date, $excerpt, $tag){
         ?>
             <div class="thumbnail_container <?= $pagina?>">
                 <?php 
-                    make_thumbnail($pagina, $pIsUnidad, $img_src, $video_src);
+                    make_thumbnail($pagina, $pIsMateria, $img_src, $video_src);
                     make_thumbnail_title($title);
                     make_thumbnail_text($pagina, $creation_date, $excerpt);
                     make_thumbnail_tag($pagina, $tag);
@@ -13,14 +13,14 @@
             </div>
         <?php
     }
-    function make_thumbnail($pagina, $pIsUnidad, $img_src, $video_src){
+    function make_thumbnail($pagina, $pIsMateria, $img_src, $video_src){
         ?>
-            <div class="thumbnail <?php echo $pIsUnidad ?>">
+            <div class="thumbnail <?php echo $pIsMateria ?>">
                 <img class="thumbnail_img" 
                         src="<?php echo $img_src ?>" 
                         alt="<?php echo $video_src ?>">
                         
-                <?php if($pagina == 'unidad'){ ?> 
+                <?php if($pagina == 'materia'){ ?> 
                     <i class="fab fa-youtube video"></i> 
                 <?php } ?>
             </div>
@@ -39,7 +39,7 @@
         ?>
             <p class="thumbnail_text">
                 <?php 
-                    echo $pagina == 'unidad' ? 
+                    echo $pagina == 'materia' ? 
                     $fecha : $excerpt
                 ?> 
             </p>
@@ -47,7 +47,7 @@
     }
 
     function make_thumbnail_tag($pagina, $tag){
-        if($pagina == 'unidades' or $pagina == 'inicio'){ 
+        if($pagina == 'materias' or $pagina == 'inicio'){ 
             ?> 
                 <ul class="thumbnail_tag">
                     <li><?php echo $tag ?></li>
@@ -57,26 +57,23 @@
     }
 
     function make_thumbnail_button($pagina, $theresAnAccount, $t_id){ 
-        if($pagina != 'unidad'){ 
-            if($theresAnAccount == '?p=unidad'){
+        if($pagina != 'materia'){ 
+            if($theresAnAccount == '?p=materia'){
                 switch ($t_id) {
                     case 2:
-                        $theresAnAccount = '?p=unidad2';
+                        $theresAnAccount = '?p=design';
                     break;
                     case 3:
-                        $theresAnAccount = '?p=unidad3';
+                        $theresAnAccount = '?p=coding';
                     break;
                     case 4:
-                        $theresAnAccount = '?p=unidad4';
+                        $theresAnAccount = '?p=database';
                     break;
                     case 5:
-                        $theresAnAccount = '?p=unidad5';
-                    break;
-                    case 6:
-                        $theresAnAccount = '?p=unidad6';
+                        $theresAnAccount = '?p=networks';
                     break;
                     default:
-                        $theresAnAccount = '?p=unidad';
+                        $theresAnAccount = '?p=materia';
                     break;
                 }
             }

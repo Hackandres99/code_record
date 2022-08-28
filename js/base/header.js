@@ -1,6 +1,6 @@
 const container = document.getElementById("container")
 const menu = document.getElementById("default_menu")
-const unidades_menu = document.getElementById("unidades_menu")
+const materias_menu = document.getElementById("materias_menu")
 const resources_menu = document.getElementById("resources_menu")
 const menu_link = document.querySelectorAll(".menu_link")
 const menu_button = document.getElementById("menu_icon_header")
@@ -10,8 +10,8 @@ const icon_search = document.getElementById("icon_search")
 const search_container = document.getElementById("search_container")
 
 const RSMI = () => {
-    if (document.getElementById('unidad_menu_container')) {
-        unidad_menu_container.querySelectorAll('.menu_icon').forEach(e => {
+    if (document.getElementById('materia_menu_container')) {
+        materia_menu_container.querySelectorAll('.menu_icon').forEach(e => {
             if (e.id.includes('menu_icon_')) {
                 e.className = 'menu_icon'
             }
@@ -55,8 +55,7 @@ menu.addEventListener('mouseout', () => {
 
 // Showing menu
 menu_button.addEventListener("click", () => {
-    unidades_menu.classList.remove('show-lateral')
-    resources_menu.classList.remove('show-lateral')
+    materias_menu.classList.remove('show-lateral')
     menu.classList.toggle('show-lateral')
 
 })

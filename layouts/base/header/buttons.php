@@ -8,7 +8,7 @@
             make_functional_icon('menu','header',
             'dif_page', 'bars');
         break;
-        case 'unidades':
+        case 'materias':
             make_functional_icon('','icon_search',
             'dif_page search', 'search');
     }

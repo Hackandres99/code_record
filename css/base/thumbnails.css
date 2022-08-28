@@ -24,11 +24,7 @@
      max-width: 300px;
  }
  
- .thumbnail_container.unidades {
-     display: none;
- }
- 
- .thumbnail_container.unidad {
+ .thumbnail_container.materia {
      max-width: 400px;
      height: 400px;
  }
@@ -43,7 +39,7 @@
      width: 100%;
  }
  
- .thumbnail.unidad {
+ .thumbnail.materia {
      cursor: pointer;
      height: 250px;
  }
@@ -66,7 +62,7 @@
      transition: color .5s;
  }
  
- .thumbnail.unidad:hover .fa-youtube,
+ .thumbnail.materia:hover .fa-youtube,
  .fa-youtube:hover {
      color: #fff;
  }

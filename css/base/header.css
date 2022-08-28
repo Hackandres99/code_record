@@ -67,7 +67,7 @@ header {
 }
 
 .default_menu,
-.unidades_menu,
+.materias_menu,
 .resources_menu {
     width: 500px;
     height: 100%;
@@ -76,13 +76,13 @@ header {
     list-style: none;
 }
 
-.default_menu.unidades,
-.unidades_menu,
+.default_menu.materias,
+.materias_menu,
 .resources_menu {
     left: 50px;
 }
 
-.unidades_menu,
+.materias_menu,
 .resources_menu {
     display: flex;
     flex-direction: column;
@@ -129,7 +129,7 @@ header {
 .menu_link:hover li,
 .menu_session_started:hover,
 .menu_link.selected li,
-.menu_link.unidad_selected li,
+.menu_link.materia_selected li,
 .menu_link.resource_selected li {
     color: #46a2fd;
 }
@@ -137,7 +137,7 @@ header {
 .menu_link:hover .fas,
 .menu_session_started:hover .fas,
 .menu_link.selected .fas,
-.menu_link.unidad_selected .fas,
+.menu_link.materia_selected .fas,
 .menu_link.resource_selected .fas {
     color: #46a2fd;
 }
@@ -234,7 +234,7 @@ header {
 
 @media screen and (max-width: 800px) {
     .default_menu,
-    .unidades_menu,
+    .materias_menu,
     .resources_menu {
         flex-direction: column;
         height: 100vh;
@@ -320,7 +320,7 @@ header {
     .resources_menu .menu_link {
         height: 40px;
     }
-    .unidades_menu .menu_link {
+    .materias_menu .menu_link {
         height: 40px;
     }
 }
@@ -332,7 +332,7 @@ header {
     .resources_menu .menu_link {
         height: 35px;
     }
-    .unidades_menu .menu_link {
+    .materias_menu .menu_link {
         height: 35px;
     }
 }
@@ -344,7 +344,7 @@ header {
     .resources_menu .menu_link {
         height: 30px;
     }
-    .unidades_menu .menu_link {
+    .materias_menu .menu_link {
         height: 30px;
     }
 }

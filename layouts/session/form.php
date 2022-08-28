@@ -21,7 +21,7 @@
     
                 if(password_verify($_POST['input_password'], $student_results['account_pass'])){
                     $_SESSION['student_email'] = $student_results['email'];
-                    header('Location: ?p=unidades');
+                    header('Location: ?p=materias');
                 }
             break;
 
@@ -49,7 +49,7 @@
                     $signlog->insert(null, $register_visit, 'visit');
 
                     $_SESSION['student_email'] = $student_results['email'];
-                    header('Location: ?p=unidades');
+                    header('Location: ?p=materias');
                 }else{
                     $signlog->setVerify('Sus credenciales no coinciden');
                 }

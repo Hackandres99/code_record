@@ -10,14 +10,14 @@
         Tecnofor - <?php echo $pagina ?>
     </title> 
     <?php switch ($pagina) {
-            case 'unidades': 
-                include 'head/unidades.php'; 
+            case 'materias': 
+                include 'head/materias.php'; 
             break;
 
-            case 'unidad': case 'unidad1': case 'unidad2': 
-            case 'unidad3': case 'unidad4': 
-            case 'unidad5': case 'unidad6':
-                include 'head/unidad.php'; 
+            case 'materia': case 'algorithm': 
+            case 'design': case 'coding': 
+            case 'database': case 'networks':
+                include 'head/materia.php'; 
             break;
 
             case 'contacto': 

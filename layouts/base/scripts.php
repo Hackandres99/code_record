@@ -3,14 +3,14 @@
 <?php 
     switch ($pagina) {
 
-        case 'unidades': 
-            include 'scripts/unidades.php'; 
+        case 'materias': 
+            include 'scripts/materias.php'; 
         break;
         
-        case 'unidad': case 'unidad1': case 'unidad2': 
-        case 'unidad3': case 'unidad4': 
-        case 'unidad5': case 'unidad6': 
-            include 'scripts/unidad.php'; 
+        case 'materia': case 'algorithm': 
+        case 'design': case 'coding': 
+        case 'database': case 'netowrks': 
+            include 'scripts/materia.php'; 
         break;
     }
 ?>

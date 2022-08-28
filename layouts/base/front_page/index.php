@@ -1,10 +1,10 @@
 <?php
     $front_img = $pagina == 'inicio'?
     '/img/front_pages/inicio.jpeg':
-    '/img/front_pages/unidades.jpg';
+    '/img/front_pages/materias.jpg';
 
     $page = $pagina != 'inicio'?
-     'unidades': 'inicio';
+     'materias': 'inicio';
      
 ?>
 <div class="front_page_container">

@@ -13,8 +13,8 @@ function scrollUp() {
     if (menu.classList.contains('show-lateral')) {
         menu.classList.remove('show-lateral')
     }
-    if (unidades_menu.classList.contains('show-lateral')) {
-        unidades_menu.classList.remove('show-lateral')
+    if (materias_menu.classList.contains('show-lateral')) {
+        materias_menu.classList.remove('show-lateral')
     }
     if (resources_menu.classList.contains('show-lateral')) {
         resources_menu.classList.remove('show-lateral')

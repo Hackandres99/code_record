@@ -1,27 +1,15 @@
 <?php
-    function make_link($type, $ahref, $aclass, $lclass, $icon, $name){
-        if($type != 'http'){
-            ?>
-                <a href="?p=<?= $ahref ?>" class="menu_link <?= $aclass ?>">
-                    <span class="menu_bar"></span>
-                    <li class="<?= $lclass ?>">
-                    <i class="fas fa-<?= $icon ?>"></i> 
-                        <?= $name ?>
-                    </li>
-                </a>
-            <?php
-        } else {
-            ?>
-                <a href="<?= $ahref ?>" class="menu_link <?= $aclass ?>" 
-                    target="_blank">
-                    <span class="menu_bar"></span>
-                    <li class="<?= $lclass ?>">
-                    <i class="fas fa-<?= $icon ?>"></i> 
-                        <?= $name ?>
-                    </li>
-                </a>
-            <?php
-        }
+    
+    function make_link($ahref, $aclass, $lclass, $icon, $name){
+        ?>
+            <a href="?p=<?= $ahref ?>" class="menu_link <?= $aclass ?>">
+                <span class="menu_bar"></span>
+                <li class="<?= $lclass ?>">
+                <i class="fas fa-<?= $icon ?>"></i> 
+                    <?= $name ?>
+                </li>
+            </a>
+        <?php
     }
 
     function make_session_link($email){

@@ -1,25 +1,25 @@
 <?php 
     switch ($pagina) {
-        case 'unidades': 
-        case 'unidad':
-        case 'unidad1':
-        case 'unidad2':
-        case 'unidad3':
-        case 'unidad4':
-        case 'unidad5':
-        case 'unidad6':
-            $unidades = 'unidades'; 
+        case 'materias': 
+        case 'materia':
+        case 'algorithm':
+        case 'design':
+        case 'coding':
+        case 'database':
+        case 'networks':
+            $materias = 'materias'; 
         break;
     }
     $inicioS = $pagina == 'inicio' ? 'selected': '';
     $inicioMS = $pagina == 'inicio' ? 'menu_selected': '';
     $contactoS = $pagina == 'contacto' ? 'selected': '';
     $contactoMS = $pagina == 'contacto' ? 'menu_selected': '';
+
+    include 'menus/materia_menu.php';
 ?> 
 <div class="menus">
     <?php
         include 'menus/default_menu.php';
-        include 'menus/unidad_menu.php';
-        include 'menus/resource_menu.php'
+        include 'menus/materia_menu.php'
     ?>
 </div>

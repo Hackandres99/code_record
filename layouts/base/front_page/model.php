@@ -6,7 +6,7 @@
                     src="<?= $image_src ?>"
                     alt="banner">
                 <div class="front_page_cover">
-                    <h1 class="front_page_title unidades"><?= $title ?></h1>
+                    <h1 class="front_page_title materias"><?= $title ?></h1>
                     <p class="front_page_phrase">
                         <?= $phrase ?>
                     </p>
