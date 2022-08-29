@@ -8,16 +8,17 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background: #6cb5ff;
+    background: var(--secundary_background);
     font-size: 20px;
-    color: white;
+    color: var(--primary_selection);
     cursor: pointer;
-    transition: all 300ms ease;
+    transition: transform .3s ease, background-color .4s ease-in-out, color .4s ease-in-out;
     transform: scale(0);
 }
 
 .button_up:hover {
-    background: #3c9eff;
+    background: var(--primary_selection);
     transform: scale(1.1);
-    border-color: rgba(0, 0, 0, 0.1);
+    color: var(--color);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }

@@ -1,11 +1,9 @@
-<h1 class="logo">
-    <a class="logo_img_link" href="?p=inicio">
-        <img class="logo_img" src="/img/logo.png" alt="logo">
-        <label class="logo_name">
-            TECNOFOR
-        </label>   
-    </a>
-   <a class="logo_sentence_link"href="?p=inicio">
-        AFIANZA TU APRENDIZAJE
-    </a>
-</h1>
+<div class="logo_container">
+    <div class="logo">
+        <div class="circle"></div>
+        <div class="words">
+            <div class="first_line">ode</div>
+            <div class="second_line">Record</div>
+        </div>
+    </div>
+</div>

@@ -1,44 +1,52 @@
 <?php
-    $front_img = $pagina == 'inicio'?
-    '/img/front_pages/inicio.jpeg':
-    '/img/front_pages/materias.jpg';
-
     $page = $pagina != 'inicio'?
      'materias': 'inicio';
      
+     include 'phrases.php'
 ?>
 <div class="front_page_container">
 
-    <img class="front_page_img" 
-        src="<?= $front_img ?>"
-           alt="banner">
+    <div class="front_page_images">
+        
+        <?php
+            $images = null;
+            $archive = '/img/front_pages/';
+            $dir = opendir(dirname(__DIR__, 3).$archive);
+            while ($img = readdir($dir)) {
+                if($img != '.' and $img != '..'){
+                    ?>
+                        <img class="front_page_img" src="<?= $archive.$img ?>" 
+                        alt="Portada UG <?= substr($img, 0, strlen($img) -5)?>">
+                    <?php
+                }
+            }
+
+        ?>
+    </div>
 
     <div class="front_page_cover">
-    <?php
-        if($pagina == 'inicio'){
-            ?>
-                <div class="front_page_logos">
-                    <img class="img" src="/img/inicio/UG.png" alt="UG logo">
-                    <img class="img" src="/img/inicio/FHR.png" alt="FHR logo">
-                    <img class="img" src="/img/inicio/philosophy.png" alt="philosophy logo">
-                </div>
-            <?php
-        }
-    ?>
     <h1 class="front_page_title <?= $page ?>">
             <?php   
                 if($pagina == 'inicio'){
-                    echo 'Diseño Pedagógico Digital Basado En Los Recursos Tecnológicos Educativos
-                    Para Fortalecer El Aprendizaje De La Asignatura De Matemáticas de Primer Año de Bachillerato.';
+                    echo 'Clase invertida para el aprendizaje autónomo de la programación.';
                 }else{
-                    echo 'Encuentra tu tema de interes.';
+                    echo 'La tecnología es mejor cuando junta a las personas. "Matt Mullenweg"';
                 }
             ?>
         </h1>
-        <p class="front_page_phrase">
-            Nunca te rindas. A veces la última llave es la que abre la puerta.
-        </p>
+        <div class="front_page_phrase_container">
+            <?php
+                foreach ($learning_phrases as $phrase) {
+                    ?>
+                        <p class="front_page_phrase">
+                            <?= $phrase ?>
+                        </p>
+                    <?php
+                }
+            ?>
+        </div>
     </div>
     
 </div>
+
 

@@ -1,42 +1,32 @@
 footer {
     width: 100%;
-    padding: 40px 0;
-    background: #fff;
+    padding-top: 25px;
+    background: var(--primary_background);
+}
+
+footer .logo_container {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 footer .logo {
-    margin-left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-footer .logo_img_link {
-    color: rgb(80, 80, 80);
-}
-
-footer .logo_sentence_link {
-    display: block;
-    width: 300px;
-}
-
-footer .logo_name {
-    color: #2d7ac8;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .footer_medias {
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
     color: rgb(70, 70, 70);
 }
 
 .footer_media_icon {
     font-size: 20px;
-    margin: 20px;
-    background: #cfcfcf;
+    background: var(--primary_selection);
     width: 50px;
     height: 50px;
     display: flex;
@@ -46,25 +36,22 @@ footer .logo_name {
     color: rgb(70, 70, 70);
 }
 
-.fa-envelope:hover {
-    background: #46a2fd;
+.fa-github:hover {
+    background: var(--github_background);
     color: #fff;
 }
 
 .footer_copy {
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 20px;
-    color: rgb(70, 70, 70);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary_selection);
     border-top: 2px solid #726e6e7a;
     font-weight: 500;
-    padding: 0 45px;
 }
 
 @media screen and (max-width: 530px) {
-    footer .logo_sentence_link {
-        width: 150px;
-    }
     .footer_medias {
         flex-direction: column;
     }

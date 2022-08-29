@@ -1,0 +1,39 @@
+.logo {
+    cursor: pointer;
+    height: 100%;
+    width: 110px;
+    display: flex;
+    padding: 4.5px;
+}
+
+.circle {
+    align-self: flex-start;
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 15px 0 0 .1em var(--logo_color) inset;
+}
+
+.words {
+    align-self: flex-end;
+    margin-left: -25px;
+    width: 2em;
+    font-size: 38px;
+    text-align: end;
+    transition: width 1s .3s ease, opacity 1s ease;
+    color: var(--logo_color);
+}
+
+.first_line {
+    margin-bottom: -6px;
+    font-size: 33px;
+    font-family: GOTHICB0;
+}
+
+.second_line {
+    margin-bottom: -6px;
+    border-top: 1px solid var(--logo_color);
+    font-size: 22px;
+    font-family: CenturyGothic;
+}

@@ -2,8 +2,7 @@
 
 .excerpt_container {
     width: 1000px;
-    margin: auto;
-    margin-top: 40px;
+    margin: 40px auto;
     display: flex;
     justify-content: center;
 }
@@ -19,30 +18,32 @@
     border-radius: 6px;
     position: relative;
     overflow: hidden;
-    background: #fff;
+    background: var(--primary_background);
 }
 
 .excerpt:before {
     content: '';
     width: 100%;
-    height: 6px;
+    height: 5px;
     position: absolute;
     top: 0;
     left: 0;
-    background: #46a2fd;
+    background: linear-gradient(to right, transparent, var(--secundary_selection), transparent);
 }
 
 .excerpt_secondary_title {
     margin-top: 20px;
     font-weight: 600;
     font-size: 25px;
-    color: #333;
+    color: var(--secundary_selection);
+    font-family: 'GOTHICB0';
 }
 
 .excerpt_paragraph {
     margin-top: 20px;
     font-size: 18px;
-    color: #3c3c3c;
+    color: var(--primary_selection);
+    font-family: 'CenturyGothic';
 }
 
 .introductory_video_container {

@@ -1,6 +1,6 @@
 <?php
     // error_reporting(0);
-    require_once './phpCrud/signlog_in_modelo.php';
+    require_once './crud/signlog_in_modelo.php';
     session_start();
     $signlog = new Signlog_in_modelo();
 
@@ -17,7 +17,7 @@
        $email_condition = ['email =' => "'{$_SESSION['student_email']}'"];  
        $email_result = $signlog->consult($email_field, $email_condition);
 
-       if(count($email_result) > 0){
+       if(is_countable($email_result) > 0){
            $email = $email_result['email'];
        }
    }

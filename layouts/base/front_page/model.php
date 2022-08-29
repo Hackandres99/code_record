@@ -7,9 +7,11 @@
                     alt="banner">
                 <div class="front_page_cover">
                     <h1 class="front_page_title materias"><?= $title ?></h1>
-                    <p class="front_page_phrase">
-                        <?= $phrase ?>
-                    </p>
+                    <div class="front_page_phrase_container">
+                        <p class="front_page_phrase">
+                            <?= $phrase ?>
+                        </p>
+                    </div>
                 </div>
             </div>
         <?php

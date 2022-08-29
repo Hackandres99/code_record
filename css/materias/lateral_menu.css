@@ -2,7 +2,7 @@
     height: 100%;
     position: fixed;
     margin-top: 80px;
-    background: #fff;
+    background: var(--primary_background);
     display: flex;
     flex-direction: column;
     z-index: 10;
@@ -10,7 +10,7 @@
 
 .materia_category_container,
 .visit_lateral {
-    color: #000;
+    color: var(--color);
     display: flex;
     align-items: center;
     height: 50px;
@@ -23,7 +23,7 @@
     display: none;
 }
 
-.materia_initials,
+.materia_icon,
 .visit_icon {
     width: 50px;
     text-align: center;
@@ -31,7 +31,7 @@
 }
 
 .visit_icon {
-    color: #777777;
+    color: var(--color);
 }
 
 .materia_label,
@@ -58,18 +58,14 @@
 .materia_category_container:hover,
 .materia_category_container.selected,
 .visit_lateral:hover {
-    background: #46a2fd;
-    color: #fff;
+    background: var(--primary_selection);
+    color: var(--color);
 }
 
 .materia_category_container:hover .label_container,
 .visit_lateral:hover .visit_text_container {
-    background: #46a2fd;
+    background: var(--primary_selection);
     transform: scale(1, 1);
-}
-
-.visit_lateral:hover .visit_icon {
-    color: #fff;
 }
 
 @media screen and (max-width: 800px) {

@@ -7,7 +7,7 @@
     maximum-scale=1.0, 
     minimum-scale=1.0">
     <title>
-        Tecnofor - <?php echo $pagina ?>
+        CodeRecord - <?php echo $pagina ?>
     </title> 
     <?php switch ($pagina) {
             case 'materias': 

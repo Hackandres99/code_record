@@ -1,7 +1,6 @@
 const container = document.getElementById("container")
 const menu = document.getElementById("default_menu")
 const materias_menu = document.getElementById("materias_menu")
-const resources_menu = document.getElementById("resources_menu")
 const menu_link = document.querySelectorAll(".menu_link")
 const menu_button = document.getElementById("menu_icon_header")
 

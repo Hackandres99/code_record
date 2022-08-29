@@ -3,14 +3,15 @@
     <?php include 'header/logo.php' ?>
     
     <div class="footer_medias">
-        <label for="">¿Tienes alguna pregunta?</label>
-        <a href="?p=contacto"><i class="fas fa-envelope footer_media_icon"></i></a>
-        <label for="">Mándanos un mensaje</label>
+        <a href="https://github.com/Hackandres99/code_record.git" target="_blank">
+            <i class="fab fa-github footer_media_icon"></i>
+        </a>
+
     </div>
 
     <p class="footer_copy">
         <label class="text"> 
-            ©<?php echo date('Y') ?> Tecnofor - Todos los Derechos Reservados.
+            Todos los derechos reservados &copy; <?php echo date('Y') ?> | Code Record
         </label>
     </p>
     

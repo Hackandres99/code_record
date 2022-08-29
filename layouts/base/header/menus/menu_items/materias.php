@@ -8,11 +8,11 @@
         case 'database':
         case 'networks':
             make_link('materias', 'selected', 'menu_selected',
-            'chalkboard-teacher','Materias'); 
+            'shapes','Materias'); 
         break;
         default: // other pages
             make_link('materias', '', '',
-            'chalkboard-teacher', 'Materias');
+            'shapes', 'Materias');
         break;
     } 
 ?>

@@ -1,5 +1,6 @@
 <script src="/js/base/header.js"></script>
 <script src="/js/base/button-up.js"></script>
+<script src="/js/base/front_page.js"></script>
 <?php 
     switch ($pagina) {
 

@@ -5,20 +5,18 @@
         include 'base/thumbnails/models.php';
         include 'materia/light_box.php';
         include 'materia/model.php';
-        require_once './phpCrud/thumbnails_modelo.php';
+        require_once './crud/subjects_modelo.php';
         include 'materias/circle_btn.php';
 
         $theresAnAccount = !isset($email) ? '?p=session' : '?p=materia';
-        $thumbnail = new Thumbnail_modelo();
-        $results = $thumbnail->consult();
+        $subject = new Subject_modelo();
+        $results = $subject->consult();
 
         make_materia(
-            $results[3]['image_src'], 'materia numero 4',
-            $results[3]['title'], $results[3]['intro_video'],
-            $results[3]['theme'], $pagina, $theresAnAccount, 
-            $results[3]['id'], $results[3]['video_src'], 
-            $results[3]['theme'], $results[3]['creation_date'],
-            'quizz', 'Hacer actividad', 'clipboard-list', 'https://quizizz.com/',
+            $results[3]['image'], $results[3]['tool'], $results[3]['title'], 
+            $results[3]['description'], $pagina, 
+            '', $results[3]['description'], $results[3]['creation_date'],
+            'quizz', 'Hacer test', 'clipboard-list', 'https://es.liveworksheets.com/tf3156579ty',
             'geo', 'Ir a geogebra', 'subscript', 'https://www.geogebra.org/'
         );
         make_btn_link('yes', '', $visit_num, '', '');

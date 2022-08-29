@@ -1,10 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&display=swap');
+@font-face {
+    font-family: 'CenturyGothic';
+    src: url('/fonts/CenturyGothic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GOTHICB0';
+    src: url('/fonts/GOTHICB0.TTF') format('truetype');
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+:root {
+    --primary_background: rgb(40, 40, 40);
+    --secundary_background: rgb(56, 56, 56);
+    --tertiary_background: rgb(25, 25, 25);
+    --primary_selection: #fff;
+    --secundary_selection: #efb810;
+    --color: #777;
+    --logo_color: #fff;
+    --github_background: #000;
 }
 
 body {
