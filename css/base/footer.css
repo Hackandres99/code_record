@@ -11,9 +11,8 @@ footer .logo_container {
     align-items: center;
 }
 
-footer .logo {
-    padding-left: 0;
-    padding-right: 0;
+footer .words {
+    margin-top: 15px;
 }
 
 .footer_medias {
