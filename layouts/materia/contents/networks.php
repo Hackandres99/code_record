@@ -30,6 +30,4 @@ También podemos sumar polinomios escribiendo un polinomio debajo del otro.
     <li>Como la multiplicación de polinomios cumple la propiedad conmutativa, hemos tomado como polinomio multiplicador el polinomio más sencillo.</li>
 </ol>
 
-<img class="img width" src="/img/unidades/u5_img/img1.png" alt="Solución"> <br><br>
-
 Observamos que ambos métodos brindan la misma solución. <br><br>

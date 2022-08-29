@@ -11,12 +11,6 @@ Para sumar las ecuaciones y que desaparezca una de las dos incógnitas, los coef
 
 Después, sumamos las ecuaciones y resolvemos la ecuación obtenida: <br><br>
 
-<img class="img" src="/img/unidades/u3_img/img1.png" alt="Ejemplo"> <br><br>
-
 Finalmente, sustituimos el valor de y=2y=2 en la primera ecuación y la resolvemos: <br><br>
 
-<img class="img" src="/img/unidades/u3_img/img2.png" alt="Ejemplo"> <br><br>
-
 Por tanto, la solución del sistema de ecuaciones es: <br><br>
-
-<img class="img" src="/img/unidades/u3_img/img3.png" alt="Ejemplo"> <br><br>

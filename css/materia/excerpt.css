@@ -1,29 +1,137 @@
 .acordion {
-    width: 90%;
-    max-width: 1000px;
-    margin: 2rem auto;
+    background-color: var(--primary_background);
+    height: 500px;
+    border-radius: 0.5rem;
+    overflow-y: scroll;
+    max-width: 400px;
+    margin-left: 2rem;
 }
 
+.acordion::-webkit-scrollbar {
+    width: 8px;
+}
+
+.acordion::-webkit-scrollbar-track {
+    border-radius: 4px;
+}
+
+.acordion::-webkit-scrollbar-thumb {
+    background: var(--secundary_selection);
+    border-radius: 4px;
+}
+
+
+/* Button Sections */
+
+.sections {
+    width: 100%;
+    display: flex;
+}
+
+.acordion_section {
+    width: 100%;
+    height: 100%;
+    padding: 10px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.acordion_section:nth-child(2),
+.acordion_section:nth-child(3) {
+    display: none;
+}
+
+.acordion_section_bar {
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.acordion_section_text,
+.acordion_section_text .fas {
+    text-align: center;
+    color: var(--primary_selection);
+    transition: color .5s;
+}
+
+
+/* Selected button section*/
+
+.acordion_section_text {
+    list-style: none;
+}
+
+.acordion_section_text:hover,
+.acordion_section_text:hover .fas {
+    cursor: pointer;
+}
+
+.acordion_section.selected_syllabus .acordion_section_bar {
+    background: linear-gradient(to right, var(--secundary_selection), transparent);
+}
+
+.acordion_section.selected .acordion_section_bar {
+    background: linear-gradient(to right, transparent, var(--secundary_selection), transparent);
+}
+
+.acordion_section.selected_tests .acordion_section_bar {
+    background: linear-gradient(to left, var(--secundary_selection), transparent);
+}
+
+.acordion_section.selected_syllabus .acordion_section_text,
+.acordion_section.selected .acordion_section_text,
+.acordion_section.selected_tests .acordion_section_text,
+.acordion_section.selected_syllabus .fas,
+.acordion_section.selected .fas,
+.acordion_section.selected_tests .fas {
+    color: var(--secundary_selection);
+}
+
+.acordion_section_container {
+    padding: 20px;
+    display: none;
+}
+
+.acordion_section_container.selected {
+    display: block;
+}
+
+
+/* End button Sections */
+
+
+/* Syllabus Section */
+
 .acordion_item {
-    background-color: #fff;
-    color: #111;
-    margin: 1rem 0;
+    margin-top: 20px;
+    background-color: var(--secundary_background);
+    color: var(--primary_selection);
     border-radius: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-.acordion_item_title {
+.acordion_item:first-child {
+    margin-top: 0;
+}
+
+.acordion_item_header {
     padding: 0.5rem 3rem 0.5rem 1rem;
     min-height: 3.5rem;
     line-height: 1.25rem;
     font-weight: bold;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     position: relative;
     cursor: pointer;
 }
 
-.acordion_item_title::after {
+.acordion_item_header::after {
     content: '\002B';
     font-size: 2rem;
     position: absolute;
@@ -31,11 +139,28 @@
     transition: transform .6s ease-in-out;
 }
 
-.acordion_item_title.active::after {
+.acordion_item_header.active::after {
     transform: rotate(135deg);
 }
 
+.acordion_item_title,
+.acordion_item_description {
+    cursor: pointer;
+}
+
+.acordion_item_title {
+    font-family: 'GOTHICB0';
+}
+
+.acordion_item_description {
+    margin-top: .5rem;
+    font-size: .9em;
+    color: var(--color);
+    font-family: CenturyGothic;
+}
+
 .acordion_item_body {
+    max-height: 0;
     overflow: hidden;
     transition: max-height .2s ease-out;
 }
@@ -44,31 +169,39 @@
     padding: 1rem;
     line-height: 1.5rem;
     border-top: 2px solid;
-    border-image: linear-gradient(to right, transparent, #05e3ca, transparent) 1;
+    border-image: linear-gradient(to right, transparent, var(--secundary_selection), transparent) 1;
 }
 
-.acordion_item_body_content .img {
-    margin-left: .3rem;
+.acordion_item_video_container {
+    font-size: 1.1em;
+    font-family: 'GOTHICB0';
+    width: 100%;
+    height: 100%;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
-.acordion_item_body_content .img.width {
-    width: 300px;
+.acordion_video_src {
+    display: none;
 }
 
-.acordion_item_body_content .img.height {
-    width: 300px;
-    height: 300px;
-}
 
-.acordion_item_body_content .list {
-    margin: 1rem;
-}
+/* End Syllabus Section */
 
-.acordion_item_body_content .mark {
-    color: #dd473c;
-    font-size: 1.5rem;
-}
-
-.acordion_item_body_content .strong {
-    font-weight: 600;
+@media screen and (max-width: 800px) {
+    .sections {
+        flex-wrap: wrap;
+    }
+    .acordion {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+    .acordion_section:nth-child(2),
+    .acordion_section:nth-child(3) {
+        display: block;
+    }
 }

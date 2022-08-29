@@ -1,23 +1,36 @@
 <?php
     if(isset($email)){
-        include 'materias/circle_btn.php';
         include 'base/front_page/model.php';
         include 'materia/excerpt.php';
         include 'base/thumbnails/models.php';
         include 'materia/light_box.php';
         include 'materia/model.php';
+        include 'materias/circle_btn.php';
         require_once './crud/subjects_modelo.php';
+        require_once './crud/themes_modelo.php';
+        require_once './crud/videos_modelo.php';
 
-        $theresAnAccount = !isset($email) ? '?p=session' : '?p=materia';
         $subject = new Subject_modelo();
-        $results = $subject->consult();
+        $subject_rs = $subject->consult();
+
+        $theme = new Theme_modelo();
+        $theme_rs = $theme->consult(
+                        ['id','title', 'description'],
+                        ['id_subject =' => $subject_rs[4]['id']]
+                    );
+        
+        $video = new Video_modelo();
+        $video_src = '';
+        if($theme_rs[0]['id'] !== null){
+            $vs = $video->consult(['src'],['id_theme =' => $theme_rs[0]['id']]);
+            $video_src =  $vs[0]['src'];
+        }
+        
 
         make_materia(
-            $results[4]['image'], $results[4]['tool'], $results[4]['title'], 
-            $results[4]['description'], $pagina, 
-            '', $results[4]['description'], $results[4]['creation_date'],
-            'quizz', 'Hacer test', 'clipboard-list', 'https://es.liveworksheets.com/tf3156579ty',
-            'geo', 'Ir a geogebra', 'subscript', 'https://www.geogebra.org/'
+            $subject_rs[4]['image'], $subject_rs[4]['tool'], $subject_rs[4]['title'], 
+            $pagina, $theme_rs, $video,
+            $video_src, $subject_rs[4]['description'], $subject_rs[4]['creation_date'],
         );
         make_btn_link('yes', '', $visit_num, '', '');
     } else {

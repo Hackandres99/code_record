@@ -5,5 +5,6 @@
 <link rel="stylesheet" href="/css/materias/circle_btn.css">
 <link rel="stylesheet" href="/css/materia/index.css">
 <link rel="stylesheet" href="/css/materia/excerpt.css">
+<link rel="stylesheet" href="/css/materia/quizz.css">
 <link rel="stylesheet" href="/css/base/front_page.css"> 
 <link rel="stylesheet" href="/css/base/thumbnails.css">

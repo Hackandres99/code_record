@@ -12,8 +12,6 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    padding: 20px;
-    padding-bottom: 40px;
     box-shadow: -10px 0 20px -30px black;
     border-radius: 6px;
     position: relative;
@@ -21,20 +19,89 @@
     background: var(--primary_background);
 }
 
-.excerpt:before {
-    content: '';
+
+/* Button Sections */
+
+.sections {
+    width: 100%;
+    display: flex;
+}
+
+.excerpt_section {
+    width: 100%;
+    height: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.excerpt_section_bar {
     width: 100%;
     height: 5px;
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
+}
+
+.excerpt_section_text,
+.excerpt_section_text .fas {
+    color: var(--primary_selection);
+    transition: color .5s;
+}
+
+
+/* Selected button section*/
+
+.excerpt_section_text {
+    list-style: none;
+}
+
+.excerpt_section_text:hover,
+.excerpt_section_text:hover .fas {
+    cursor: pointer;
+}
+
+.excerpt_section.selected_about .excerpt_section_bar {
+    background: linear-gradient(to right, var(--secundary_selection), transparent);
+}
+
+.excerpt_section.selected_goal .excerpt_section_bar {
     background: linear-gradient(to right, transparent, var(--secundary_selection), transparent);
 }
 
+.excerpt_section.selected_team .excerpt_section_bar {
+    background: linear-gradient(to left, var(--secundary_selection), transparent);
+}
+
+.excerpt_section.selected_about .excerpt_section_text,
+.excerpt_section.selected_goal .excerpt_section_text,
+.excerpt_section.selected_team .excerpt_section_text,
+.excerpt_section.selected_about .fas,
+.excerpt_section.selected_goal .fas,
+.excerpt_section.selected_team .fas {
+    color: var(--secundary_selection);
+}
+
+.excerpt_section_container {
+    width: 100%;
+    padding: 20px;
+    display: none;
+}
+
+.excerpt_section_container.selected {
+    display: block;
+}
+
+
+/* End button Sections */
+
 .excerpt_secondary_title {
     margin-top: 20px;
-    font-weight: 600;
-    font-size: 25px;
+    font-size: 22px;
     color: var(--secundary_selection);
     font-family: 'GOTHICB0';
 }
@@ -46,21 +113,9 @@
     font-family: 'CenturyGothic';
 }
 
-.introductory_video_container {
-    width: 800px;
-    height: 500px;
-    margin-top: 20px;
-    border: 3px solid rgb(35, 138, 194);
-}
-
-.introductory_video {
-    width: 100%;
-    height: 100%;
-}
-
-.excerpt img {
-    width: 100%;
-    margin-top: 20px;
+.excerpt_paragraph:first-child,
+.excerpt_paragraph:last-child {
+    margin-top: 0;
 }
 
 
@@ -76,6 +131,7 @@
 @media screen and (max-width: 1020px) {
     .excerpt_container {
         width: 100%;
+        align-items: center;
         flex-direction: column;
     }
 }

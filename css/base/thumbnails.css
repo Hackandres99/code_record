@@ -8,8 +8,10 @@
  }
  
  .thumbnails.inicio {
+     width: 100%;
+     margin-top: 0;
      display: flex;
-     justify-content: space-around;
+     justify-content: center;
  }
  
  .thumbnail_container {
@@ -27,8 +29,18 @@
  }
  
  .thumbnail_container.materia {
-     max-width: 400px;
-     height: 400px;
+     width: 800px;
+     height: 500px;
+ }
+ 
+ .thumbnail_container.materias .thumbnail_img,
+ .thumbnail_container.inicio .thumbnail_img {
+     height: 100%;
+ }
+ 
+ .thumbnail_container.materias .thumbnail_title,
+ .thumbnail_container.inicio .thumbnail_title {
+     margin-top: 20px;
  }
  
  .thumbnail_container.show {
@@ -48,7 +60,7 @@
  
  .thumbnail_img {
      width: 100%;
-     height: 100%;
+     height: 400px;
      object-fit: cover;
  }
  
@@ -58,7 +70,7 @@
      text-align: center;
      left: 0;
      right: 0;
-     top: 35%;
+     top: 65%;
      color: rgb(53, 53, 53);
      cursor: pointer;
      transition: color .5s;
@@ -71,7 +83,7 @@
  
  .thumbnail_title {
      font-size: 18px;
-     margin-top: 20px;
+     margin-top: 160px;
      padding: 0px 10px;
  }
  
@@ -137,6 +149,13 @@
  @media screen and (max-width: 950px) {
      .thumbnails {
          grid-template-columns: repeat(2, 1fr);
+     }
+ }
+ 
+ @media screen and (max-width: 800px) {
+     .thumbnail_container.materia {
+         width: 100%;
+         height: 100%;
      }
  }
  

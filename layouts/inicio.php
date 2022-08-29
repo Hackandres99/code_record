@@ -3,8 +3,6 @@
 <div class="excerpt_container">
     <?php 
         include 'base/thumbnails/models.php';
-        include 'inicio/excerpt.php';
-        
+        include 'inicio/excerpt.php';  
     ?>
-    
 </div>

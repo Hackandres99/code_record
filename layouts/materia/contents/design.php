@@ -14,4 +14,3 @@ Es decir si el vector <label class="strong">v</label> = (3,2), esto nos indica q
 </ul>
 
 <label class="mark">Ejemplo:</label> <br><br>
-<img class="img" src="/img/unidades/u2_img/img1.png" alt="Ejemplo">
