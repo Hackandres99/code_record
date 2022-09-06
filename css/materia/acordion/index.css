@@ -1,0 +1,30 @@
+.acordion {
+    background-color: var(--primary_background);
+    height: 500px;
+    border-radius: 0.5rem;
+    overflow-y: scroll;
+    max-width: 400px;
+    margin-left: 2rem;
+}
+
+.acordion::-webkit-scrollbar {
+    width: 8px;
+}
+
+.acordion::-webkit-scrollbar-track {
+    border-radius: 4px;
+}
+
+.acordion::-webkit-scrollbar-thumb {
+    background: var(--secundary_selection);
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 800px) {
+    .acordion {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+}

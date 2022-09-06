@@ -1,5 +1,5 @@
 <?php 
-    function make_excerpt($pagina, $themes, $videos){
+    function make_excerpt($pagina, $themes, $videos, $thread, $email){
         ?>
             <div class="acordion">
 
@@ -76,6 +76,17 @@
 
                 </section>
                 <section class="acordion_section_container" id="community_section">
+                    <form action="" method="post" class="form_thread">
+                        <div class="thread_user_description">
+                            <i class="fas fa-user"></i>
+                            <div class="thread_title_container">
+                                <label for="thread_title" class="form_thread_email"><?= $email ?></label>
+                                <input type="text" class="form_thread_title" name="thread_title" placeholder="¿Quieres preguntar algo?" required>
+                            </div>
+                        </div>
+                        <textarea type="text" class="form_thread_comment" name="thread_comment" placeholder="Cuéntanos qué quieres publicar" required></textarea>
+                        <input type="submit" value="Publicar" class="form_thread_btn">
+                    </form>
 
                 </section>
                 <section class="acordion_section_container" id="resources_section">

@@ -1,0 +1,89 @@
+.form_thread {
+    display: flex;
+    flex-direction: column;
+    color: var(--primary_selection);
+}
+
+.thread_user_description {
+    display: flex;
+    align-items: center;
+}
+
+.thread_title_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form_thread_title,
+.form_thread_comment {
+    color: var(--color);
+    border-radius: 5px;
+    border: none;
+    background-color: var(--secundary_background);
+}
+
+.form_thread_title:focus,
+.form_thread_comment:focus {
+    outline: none;
+}
+
+.form_thread_comment {
+    display: none;
+}
+
+.form_thread_comment.show {
+    display: block;
+}
+
+.thread_user_description .fas {
+    margin-right: 15px;
+    font-size: 25px;
+    background-color: var(--secundary_background);
+    padding: 8px;
+    border-radius: 100%;
+}
+
+.form_thread_email {
+    font-size: .9rem;
+    color: var(--color);
+}
+
+.form_thread_title {
+    margin-top: 5px;
+    padding: 8px;
+}
+
+.form_thread_comment {
+    margin-top: 15px;
+    padding: 15px;
+    height: 150px;
+}
+
+.form_thread_btn {
+    margin-top: 15px;
+    align-self: flex-end;
+    border: none;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 5px;
+    font-size: .9em;
+    height: 2.3em;
+    width: 4.5em;
+    border-radius: 4px;
+    color: var(--color);
+    background-color: #111;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.form_thread_btn.show {
+    display: flex;
+}
+
+.form_thread_btn:hover {
+    box-shadow: inset 0 0 0 2px var(--primary_selection);
+    color: var(--primary_selection);
+    background-color: transparent;
+}
