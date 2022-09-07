@@ -1,5 +1,5 @@
 <?php
-    // error_reporting(0);
+    error_reporting(0);
     require_once './crud/signlog_in_modelo.php';
     session_start();
     $signlog = new Signlog_in_modelo();

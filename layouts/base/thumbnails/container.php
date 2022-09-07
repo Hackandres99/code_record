@@ -7,9 +7,11 @@
 
     $results = $subject->consult();
 
-    foreach ($results as $rs) {
-        make_thumbnail_container($materias, $materia, $rs['image'], 
-        '', $rs['title'], $rs['creation_date'], $rs['description'], 
-        $rs['tool'], $rs['link']);
+    foreach ($results as $key => $rs) {
+        if($key != 4 and $key != 1){
+            make_thumbnail_container($materias, $materia, $rs['image'], 
+            '', $rs['title'], $rs['creation_date'], $rs['description'], 
+            $rs['tool'], $rs['link']);
+        }
     }
 ?>

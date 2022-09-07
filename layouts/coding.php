@@ -1,5 +1,5 @@
 <?php
-    if(isset($email)){
+    // if(isset($email)){
         include 'materias/circle_btn.php';
         include 'base/front_page/model.php';
         include 'materia/excerpt.php';
@@ -37,7 +37,7 @@
         if(!empty($_POST['thread_title']) && !empty($_POST['thread_comment'])){
             $record_thread = [
                 'student_email' => $email,
-                'id_subject' => 1,
+                'id_subject' => 2,
                 'title' => $_POST['thread_title'],
                 'comment' => $_POST['thread_comment']
             ];
@@ -51,7 +51,7 @@
             $video_src, $subject_rs[2]['description'], $subject_rs[2]['creation_date'],
         );
         make_btn_link('yes', '', $visit_num, '', '');
-    } else {
-        header('Location: ?p=session');
-    }
+    // } else {
+        // header('Location: ?p=session');
+    // }
 ?>
