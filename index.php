@@ -11,7 +11,7 @@
     $enum_result['count(*)'].' visitas':
     $enum_result['count(*)'].' visita';
     /* End enumerate visits */
-
+    
    if(isset($_SESSION['student_email'])){
        $email_field = ['email'];
        $email_condition = ['email =' => "'{$_SESSION['student_email']}'"];  

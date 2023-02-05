@@ -2,21 +2,19 @@
 
 require_once "BD.php";
 
-class Comment_modelo extends BD{
+class Result_modelo extends BD{
 
+    private $score;
     private $user_email;
-    private $id_thread;
-    private $comment;
-    private $user_mention;
+    private $id_test;
     
-    private $update_date;
-    private $table = 'comments';
+    private $table = 'results';
     
     public function insert($record_comment, $register2 = null, $operation = null){
         $conexion = parent::connect();
         try {
-            $query = "INSERT INTO {$this->table} SET user_email=:user_email,
-            id_thread=:id_thread, user_mention=:user_mention, comment=:comment";
+            $query = "INSERT INTO {$this->table} SET score=:score, 
+            user_email=:user_email, id_test=:id_test;";
             
             $create_comment = $conexion->prepare($query)->execute($record_comment);
 

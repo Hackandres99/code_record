@@ -29,7 +29,7 @@
  }
  
  .thumbnail_container.materia {
-     width: 800px;
+     width: 100%;
      height: 500px;
  }
  
@@ -58,7 +58,8 @@
      height: 250px;
  }
  
- .thumbnail_img {
+ .thumbnail_img,
+ .main_video {
      width: 100%;
      height: 400px;
      object-fit: cover;

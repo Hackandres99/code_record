@@ -16,12 +16,19 @@
     function make_thumbnail($pagina, $materia, $img, $video){
         ?>
             <div class="thumbnail <?php echo $materia ?>">
-                <img class="thumbnail_img" 
-                        src="<?php echo $img ?>" 
-                        alt="<?php echo $video ?>">
-                        
                 <?php if($pagina == 'materia'){ ?> 
-                    <i class="fab fa-youtube video"></i> 
+
+                    <iframe id="main_video"  class="main_video" 
+                            src="" loading="lazy" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                <?php } else { ?>
+
+                        <img class="thumbnail_img" 
+                            src="<?php echo $img ?>" 
+                            alt="<?php echo $video ?>">
+
                 <?php } ?>
             </div>
         <?php

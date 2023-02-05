@@ -12,10 +12,10 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    padding: 45px;
+    padding: 20px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .materia_resources {
         flex-direction: column;
     }

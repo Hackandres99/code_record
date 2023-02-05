@@ -10,7 +10,15 @@
         require_once './crud/subjects_modelo.php';
         require_once './crud/themes_modelo.php';
         require_once './crud/videos_modelo.php';
+
         require_once './crud/threads_modelo.php';
+        require_once './crud/comments_modelo.php';
+        require_once './crud/anwsers_modelo.php';
+
+        require_once './crud/tests_modelo.php';
+        require_once './crud/questions_modelo.php';
+        require_once './crud/options_modelo.php';
+        require_once './crud/results_modelo.php';
 
         $subject = new Subject_modelo();
         $subject_rs = $subject->consult();
@@ -28,29 +36,25 @@
             $video_src =  $vs[0]['src'];
         }
 
-        
         $thread = new Thread_modelo();
-        $thread_rs = $thread->consult(
-            ['id', 'title', 'comment', 'user_email', 'creation_date'],
-            ['id_subject =' => $subject_rs[2]['id']]
-        );
-        if(!empty($_POST['thread_title']) && !empty($_POST['thread_comment'])){
-            $record_thread = [
-                'student_email' => $email,
-                'id_subject' => 2,
-                'title' => $_POST['thread_title'],
-                'comment' => $_POST['thread_comment']
-            ];
-            $thread->insert($record_thread, null, null);
-        }
-       
+        $comment = new Comment_modelo();
+        $anwser = new Anwsers_modelo();
 
+        $test = new Tests_modelo();
+        $question = new Questions_modelo();
+        $option = new Options_modelo();
+        $result =new Result_modelo();
+       
         make_materia(
             $subject_rs[2]['image'], $subject_rs[2]['tool'], $subject_rs[2]['title'], 
-            $pagina, $theme_rs, $video, $thread_rs, $email,
+            $pagina, $theme_rs, $video, 
+            $thread, $comment, $anwser,
+            $test, $question, $option, $result, $email,
             $video_src, $subject_rs[2]['description'], $subject_rs[2]['creation_date'],
         );
+
         make_btn_link('yes', '', $visit_num, '', '');
+
     // } else {
         // header('Location: ?p=session');
     // }

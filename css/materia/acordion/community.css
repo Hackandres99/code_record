@@ -1,4 +1,4 @@
-.form_thread {
+.form_thread_container {
     display: flex;
     flex-direction: column;
     color: var(--primary_selection);
@@ -16,7 +16,8 @@
 }
 
 .form_thread_title,
-.form_thread_comment {
+.form_thread_comment,
+.form_comment {
     color: var(--color);
     border-radius: 5px;
     border: none;
@@ -24,7 +25,8 @@
 }
 
 .form_thread_title:focus,
-.form_thread_comment:focus {
+.form_thread_comment:focus,
+.form_comment:focus {
     outline: none;
 }
 
@@ -32,14 +34,19 @@
     display: none;
 }
 
-.form_thread_comment.show {
+.form_thread_comment.show,
+.form_comment.show {
     display: block;
+}
+
+.form_comment.expand {
+    height: 150px;
 }
 
 .thread_user_description .fas {
     margin-right: 15px;
     font-size: 25px;
-    background-color: var(--secundary_background);
+    background-color: var(--tertiary_background);
     padding: 8px;
     border-radius: 100%;
 }
@@ -54,17 +61,19 @@
     padding: 8px;
 }
 
-.form_thread_comment {
+.form_thread_comment,
+.form_comment {
     margin-top: 15px;
     padding: 15px;
     height: 150px;
+    width: 100%;
 }
 
-.form_thread_btn {
+.form_thread_btn,
+.thread_btn {
     margin-top: 15px;
     align-self: flex-end;
     border: none;
-    display: none;
     justify-content: center;
     align-items: center;
     padding: 8px 5px;
@@ -78,12 +87,119 @@
     transition: all 0.5s ease;
 }
 
-.form_thread_btn.show {
+.form_thread_btn.show,
+.thread_btn {
     display: flex;
 }
 
-.form_thread_btn:hover {
+.form_thread_btn:hover,
+.thread_btn:hover {
     box-shadow: inset 0 0 0 2px var(--primary_selection);
     color: var(--primary_selection);
     background-color: transparent;
+}
+
+.thread_container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secundary_background);
+    border-radius: 0.5rem;
+    padding: 1em;
+    margin-bottom: 1em;
+    color: #fff;
+}
+
+.thread_container.hide {
+    display: none;
+}
+
+.thread_title {
+    margin-bottom: 15px;
+}
+
+.thread_user_container {
+    display: flex;
+    align-items: center;
+}
+
+.thread_user_container .fas {
+    margin-right: 15px;
+    font-size: 20px;
+    background-color: var(--tertiary_background);
+    padding: 8px;
+    border-radius: 100%;
+}
+
+.thread_user_email {
+    margin-bottom: 5px;
+    font-size: .9em;
+    font-family: CenturyGothic;
+}
+
+.thread_creation_date {
+    margin-top: .5rem;
+    font-size: .75em;
+    color: var(--color);
+    font-family: CenturyGothic;
+}
+
+.thread_comment {
+    margin: 15px 0;
+    padding-bottom: 10px;
+    border-bottom: .1px solid rgb(84, 84, 84);
+}
+
+.thread_container .far {
+    align-items: center;
+    margin: 15px 5px;
+}
+
+.thread_icon {
+    height: 30px;
+    width: 120px;
+    font-size: .8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color .2s;
+}
+
+.thread_icon_description {
+    cursor: pointer;
+}
+
+.thread_icon:hover {
+    background: rgb(120, 120, 120);
+}
+
+.form_comment {
+    margin-top: 5px;
+    padding: 8px;
+    height: 35px;
+    background-color: rgb(70, 70, 70);
+}
+
+.comments_section {
+    padding-left: 15px;
+}
+
+.anwsers_section {
+    padding-left: 30px;
+    padding-bottom: 15px;
+}
+
+.comments_section,
+.anwsers_section {
+    display: none;
+}
+
+.comments_section.show,
+.form_comment_container,
+.form_anwser_container,
+.anwsers_section.show {
+    display: flex;
+    flex-direction: column;
 }

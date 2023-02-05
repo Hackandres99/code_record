@@ -2,23 +2,23 @@
 
 require_once "BD.php";
 
-class Comment_modelo extends BD{
+class Anwsers_modelo extends BD{
 
     private $user_email;
-    private $id_thread;
-    private $comment;
+    private $id_comment;
+    private $anwser;
     private $user_mention;
     
     private $update_date;
-    private $table = 'comments';
+    private $table = 'anwsers';
     
-    public function insert($record_comment, $register2 = null, $operation = null){
+    public function insert($record_com_anwser, $register2 = null, $operation = null){
         $conexion = parent::connect();
         try {
             $query = "INSERT INTO {$this->table} SET user_email=:user_email,
-            id_thread=:id_thread, user_mention=:user_mention, comment=:comment";
+            id_comment=:id_comment, user_mention=:user_mention, anwser=:anwser";
             
-            $create_comment = $conexion->prepare($query)->execute($record_comment);
+            $create_com_anwser = $conexion->prepare($query)->execute($record_com_anwser);
 
         } catch (Exception $e) {
             exit("ERROR: {$e->getMessage()}");

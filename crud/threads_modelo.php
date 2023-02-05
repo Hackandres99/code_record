@@ -4,8 +4,8 @@ require_once "BD.php";
 
 class Thread_modelo extends BD{
 
-    private $student_email;
-    private $id_subject;
+    private $user_email;
+    private $id_video;
     private $title;
     private $comment;
     
@@ -15,8 +15,8 @@ class Thread_modelo extends BD{
     public function insert($record_thread, $register2 = null, $operation = null){
         $conexion = parent::connect();
         try {
-            $query = "INSERT INTO {$this->table} SET student_email=:student_email,
-            id_subject=:id_subject, title=:title, comment=:comment";
+            $query = "INSERT INTO {$this->table} SET user_email=:user_email,
+            id_video=:id_video, title=:title, comment=:comment";
             
             $create_comment = $conexion->prepare($query)->execute($record_thread);
 
@@ -51,9 +51,8 @@ class Thread_modelo extends BD{
             }else{
                 $query = "SELECT $c_campos FROM {$this->table};";
             }
-            
-            $consultar = $conexion->query($query)->fetch();
-            return $consultar;
+            // echo "Consulta exitosa.";
+            return $consultar = $conexion->query($query)->fetchAll();
             
         } catch (Exception $e) {
             exit("ERROR: {$e->getMessage()}");
