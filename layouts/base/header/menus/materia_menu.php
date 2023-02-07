@@ -1,21 +1,11 @@
 <?php 
-    $materia_links = ['materias', 'algorithm',
-    'coding', 'database'];
+    $materia_links = ['materias', 'coding'];
 
-    $materia_icons = ['shapes', 'bezier-curve',
-    'code', 'server'];
+    $materia_icons = ['shapes',
+    'code'];
 
-    $materia_texts = ['Todas las materias', 'Algoritmo',
-     'Programación', 'Base de datos'];
-
-    // $materia_links = ['materias', 'algorithm', 'design',
-    // 'coding', 'database', 'networks'];
-
-    // $materia_icons = ['shapes', 'bezier-curve', 'palette',
-    // 'code', 'server', 'globe'];
-
-    // $materia_texts = ['Todas las materias', 'Algoritmo', 'Diseño Grafico',
-    //  'Programación', 'Base de datos', 'Hardware y Redes'];
+    $materia_texts = ['Todas las materias',
+     'Programación'];
 ?>
 
 <ul class="materias_menu materias" id="materias_menu">

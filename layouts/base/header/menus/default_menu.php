@@ -5,6 +5,3 @@
         include 'menu_items/session.php';
     ?>
 </ul>
-
-<!-- make_link('contacto', $contactoS,
-    $contactoMS, 'phone-volume','Contacto' ); -->

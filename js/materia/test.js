@@ -41,11 +41,11 @@ test_option.forEach(e => {
         let result_test_box = test_box.parentElement.lastElementChild
         let reproved_message = result_test_box.querySelector('.reproved_test')
         let aproved_message = result_test_box.firstElementChild
-        let score_element = result_test_box.querySelector('.score_text')
+        let score_element = result_test_box.querySelectorAll('.score_text')
+        let score_text_temporal = result_test_box.querySelector('.score_text_temporal')
         let score_input = result_test_box.parentElement.nextElementSibling.querySelector('.score')
         let send_test_btn = result_test_box.parentElement.nextElementSibling.querySelector('.send_test_btn')
         let next_question_btn = result_test_box.parentElement.nextElementSibling.querySelector('.next_question_btn')
-        let test_time_line = test_box.parentElement.parentElement.querySelector('.test_time_line')
 
         nextQuestion(id_test, section_test)
 
@@ -59,19 +59,24 @@ test_option.forEach(e => {
             total_q, result_test_box,
             reproved_message, aproved_message,
             score_element, null, score_input,
-            send_test_btn, next_question_btn)
+            send_test_btn, next_question_btn,
+            score_text_temporal)
 
         // Showing the previous test result
-        if (score_element.getAttribute('data-score') !== '') {
-            let average = Math.round(total_q / 2)
-            if (Number(score_element.getAttribute('data-score')) <= average) {
-                reproved_message.style.display = 'block'
-                aproved_message.style.display = 'none'
-            } else {
-                aproved_message.style.display = 'block'
-                reproved_message.style.display = 'none'
-            }
-            score_element.innerHTML = score_element.getAttribute('data-score')
+        if (score_element.length > 0) {
+            score_element.forEach(e => {
+                if (e.getAttribute('data-score') !== '') {
+                    let average = Math.round(total_q / 2)
+                    if (Number(e.getAttribute('data-score')) <= average) {
+                        reproved_message.style.display = 'block'
+                        aproved_message.style.display = 'none'
+                    } else {
+                        aproved_message.style.display = 'block'
+                        reproved_message.style.display = 'none'
+                    }
+                    e.innerHTML = e.getAttribute('data-score')
+                }
+            })
         }
     })
 })
@@ -104,7 +109,8 @@ continue_test.forEach(e => {
         let result_test_box = footer_quizz.previousElementSibling.lastElementChild
         let reproved_message = result_test_box.querySelector('.reproved_test')
         let aproved_message = result_test_box.firstElementChild
-        let score_element = result_test_box.querySelector('.score_text')
+        let score_element = result_test_box.querySelectorAll('.score_text')
+        let score_text_temporal = result_test_box.querySelector('.score_text_temporal')
         let score_input = result_test_box.parentElement.nextElementSibling.querySelector('.score')
         let send_test_btn = result_test_box.parentElement.nextElementSibling.querySelector('.send_test_btn')
         let restart_test_btn = result_test_box.lastElementChild
@@ -121,7 +127,7 @@ continue_test.forEach(e => {
                     total_q, result_test_box,
                     reproved_message, aproved_message,
                     score_element, questionTimer, score_input,
-                    send_test_btn, null)
+                    send_test_btn, null, score_text_temporal)
             } else {
                 // Restarting timer after choose an option
                 test_option.forEach(el => {
@@ -147,25 +153,30 @@ continue_test.forEach(e => {
                 }
 
                 // Showing the previous test
-                if (result_test_box.querySelector('.score_text').getAttribute('data-score') !== '') {
-                    conunter_time_line = 0
-                    time_line.style.width = conunter_time_line + '%'
-                    section_test.firstElementChild.style.display = 'none'
-                    result_test_box.style.display = 'flex'
-                    send_test_btn.style.display = 'none'
-                    footer_quizz.lastElementChild.style.display = 'flex'
+                if (score_element.length > 0) {
+                    score_element.forEach(e => {
+                        if (e.getAttribute('data-score') !== '') {
+                            conunter_time_line = 0
+                            time_line.style.width = conunter_time_line + '%'
+                            section_test.firstElementChild.style.display = 'none'
+                            result_test_box.style.display = 'flex'
+                            send_test_btn.style.display = 'none'
+                            footer_quizz.lastElementChild.style.display = 'flex'
 
-                    let average = Math.round(total_q / 2)
-                    if (Number(result_test_box.querySelector('.score_text').getAttribute('data-score')) <= average) {
-                        reproved_message.style.display = 'block'
-                        aproved_message.style.display = 'none'
-                    } else {
-                        aproved_message.style.display = 'block'
-                        reproved_message.style.display = 'none'
-                    }
-
-                    timer_element.innerHTML = 0
-                    clearInterval(questionTimer)
+                            let average = Math.round(total_q / 2)
+                            current_q_element.innerHTML = total_q
+                            if (Number(e.getAttribute('data-score')) <= average) {
+                                reproved_message.style.display = 'block'
+                                aproved_message.style.display = 'none'
+                            } else {
+                                aproved_message.style.display = 'block'
+                                reproved_message.style.display = 'none'
+                            }
+                            restart_test_btn.disabled = false
+                            timer_element.innerHTML = 0
+                            clearInterval(questionTimer)
+                        }
+                    })
                 } else {
                     restart_test_btn.disabled = true
                 }
@@ -206,7 +217,7 @@ restart_test.forEach(e => {
 
         // Showing current question number
         current_question.forEach((e, i) => {
-            if (i + 1 == id_test) {
+            if (i == id_test - 1) {
                 e.innerHTML = 1
             }
         })
@@ -240,9 +251,7 @@ next_question_btn.forEach(e => {
 })
 
 const nextQuestion = (id_test, section_test) => {
-
     questions[id_test - 1] = questions[id_test - 1] + 1
-
 
     // Changing question from the current test
     section_test.querySelectorAll('.test_box').forEach(e => {
@@ -257,7 +266,7 @@ const nextQuestion = (id_test, section_test) => {
 const updateCurrentQuestion = (id_test) => {
     // Showing current question number
     current_question.forEach((e, i) => {
-        if (i + 1 == id_test) {
+        if (i == id_test - 1) {
             e.innerHTML = questions[id_test - 1]
         }
     })
@@ -266,11 +275,12 @@ const updateCurrentQuestion = (id_test) => {
 const showResult = (id_test, current_q_element, total_q,
     result_test_box, reproved_message, aproved_message,
     score_element, questionTimer, score_input, send_test_btn,
-    next_question_btn) => {
+    next_question_btn, score_text_temporal) => {
 
     if (Number(current_q_element.innerHTML) > total_q) {
         let average = Math.round(total_q / 2)
 
+        questions[id_test - 1] = total_q
         current_q_element.innerHTML = total_q
         result_test_box.style.display = 'flex'
 
@@ -282,8 +292,13 @@ const showResult = (id_test, current_q_element, total_q,
             reproved_message.style.display = 'none'
         }
 
-        score_element.innerHTML = results[id_test - 1]
+        if (score_element.length > 0) {
+            score_element.innerHTML = results[id_test - 1]
+        } else {
+            score_text_temporal.innerHTML = results[id_test - 1]
+        }
         score_input.setAttribute('value', results[id_test - 1])
+
         send_test_btn.disabled = false
         next_question_btn.disabled = true
         clearInterval(questionTimer)

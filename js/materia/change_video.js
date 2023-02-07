@@ -1,10 +1,11 @@
 const main_video = document.getElementById('main_video')
-const main_video_id = document.querySelector('.main_video_id')
+const main_video_id = document.querySelectorAll('.main_video_id')
 const thumbnail_title = document.querySelector('.thumbnail_title')
 const thumbnail_text = document.querySelector('.thumbnail_text')
 const thread_container = document.querySelectorAll('.thread_container')
 
 const acordion_item_video_container = document.querySelectorAll('.acordion_item_video_container')
+const width = screen.width
 
 // Showing threads from introductory video 
 thread_container.forEach(e => {
@@ -24,9 +25,12 @@ acordion_item_video_container.forEach((e, i) => {
         let first_video_id = e.nextElementSibling.innerHTML.trim()
 
         let no_autoplay_video = first_video_src.substring(0, first_video_src.length - 14)
+        let embed_video = no_autoplay_video.replace('watch?v=', 'embed/')
 
-        main_video.setAttribute('src', no_autoplay_video)
-        main_video_id.setAttribute('value', first_video_id)
+        main_video.setAttribute('src', embed_video)
+        main_video_id.forEach(e => {
+            e.setAttribute('value', first_video_id)
+        })
         thumbnail_title.innerHTML = first_video_title
         thumbnail_text.innerHTML = first_video_uploaded_date
     }
@@ -36,9 +40,12 @@ acordion_item_video_container.forEach((e, i) => {
         let video_title = e.firstElementChild.innerHTML
         let upload_date = e.lastElementChild.innerHTML
         let video_id = e.nextElementSibling.innerHTML
+        let embed_video = video_src.replace('watch?v=', 'embed/')
 
-        main_video.setAttribute('src', video_src)
-        main_video_id.setAttribute('value', video_id)
+        main_video.setAttribute('src', embed_video)
+        main_video_id.forEach(e => {
+            e.setAttribute('value', video_id)
+        })
         thumbnail_title.innerHTML = video_title
         thumbnail_text.innerHTML = upload_date
 

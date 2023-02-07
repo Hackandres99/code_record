@@ -11,12 +11,21 @@
 .materia_resources {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: space-around;
     padding: 20px;
 }
 
+.materia_resource_view {
+    display: flex;
+    margin-top: 30px;
+}
+
 @media screen and (max-width: 900px) {
-    .materia_resources {
+    .materia_resource_view {
         flex-direction: column;
+    }
+    .materia_resource_view:nth-child(2) {
+        display: none;
     }
 }

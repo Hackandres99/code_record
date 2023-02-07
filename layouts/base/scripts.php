@@ -10,9 +10,7 @@
             include 'scripts/materias.php'; 
         break;
         
-        case 'materia': case 'algorithm': 
-        case 'design': case 'coding': 
-        case 'database': case 'networks': 
+        case 'materia': case 'coding':  
             include 'scripts/materia.php'; 
         break;
     }

@@ -2,12 +2,12 @@
     background-color: var(--primary_background);
     border-radius: .5em;
     margin-left: 2em;
+    width: 490px;
 }
 
 .acordion {
     overflow-y: scroll;
     height: 455px;
-    width: 400px;
 }
 
 .acordion::-webkit-scrollbar {

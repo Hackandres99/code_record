@@ -16,9 +16,6 @@ function scrollUp() {
     if (materias_menu.classList.contains('show-lateral')) {
         materias_menu.classList.remove('show-lateral')
     }
-    if (resources_menu.classList.contains('show-lateral')) {
-        resources_menu.classList.remove('show-lateral')
-    }
     // Removing selected lateral menu items
     RSMI();
 }

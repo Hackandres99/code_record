@@ -2,11 +2,7 @@
     switch ($pagina) {
         case 'materias': 
         case 'materia':
-        case 'algorithm':
-        case 'design':
         case 'coding':
-        case 'database':
-        case 'networks':
             $materias = 'materias'; 
         break;
     }

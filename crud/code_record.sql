@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Aug 29, 2022 at 08:33 PM
--- Server version: 5.7.33
--- PHP Version: 8.1.8
+-- Servidor: localhost:3306
+-- Tiempo de generación: 07-02-2023 a las 21:25:39
+-- Versión del servidor: 5.7.33
+-- Versión de PHP: 8.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,16 +18,48 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `code_record`
+-- Base de datos: `code_record`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `anwsers`
+-- Estructura de tabla para la tabla `anwsers`
 --
 
 CREATE TABLE `anwsers` (
+  `id` int(11) NOT NULL,
+  `anwser` text NOT NULL,
+  `user_mention` varchar(60) NOT NULL,
+  `user_email` varchar(60) NOT NULL,
+  `id_comment` int(11) NOT NULL,
+  `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `comment` text NOT NULL,
+  `user_mention` varchar(60) NOT NULL,
+  `user_email` varchar(60) NOT NULL,
+  `id_thread` int(11) NOT NULL,
+  `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `options`
+--
+
+CREATE TABLE `options` (
   `id` int(11) NOT NULL,
   `anwser` text NOT NULL,
   `id_question` int(11) NOT NULL,
@@ -38,29 +70,31 @@ CREATE TABLE `anwsers` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
+-- Estructura de tabla para la tabla `questions`
 --
 
-CREATE TABLE `comments` (
+CREATE TABLE `questions` (
   `id` int(11) NOT NULL,
-  `comment` text NOT NULL,
-  `user_mention` varchar(40) NOT NULL,
-  `user_email` varchar(40) NOT NULL,
-  `id_thread` int(11) NOT NULL,
+  `question` text NOT NULL,
+  `anwser` text NOT NULL,
+  `id_test` int(11) NOT NULL,
   `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `upload_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `external`
+-- Estructura de tabla para la tabla `resources`
 --
 
-CREATE TABLE `external` (
+CREATE TABLE `resources` (
   `id` int(11) NOT NULL,
-  `title` varchar(40) NOT NULL,
+  `title` text NOT NULL,
+  `description` text NOT NULL,
+  `content` text NOT NULL,
   `src` text NOT NULL,
+  `tag` varchar(20) NOT NULL,
   `id_subject` int(11) NOT NULL,
   `upload_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
@@ -69,27 +103,27 @@ CREATE TABLE `external` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `questions`
+-- Estructura de tabla para la tabla `results`
 --
 
-CREATE TABLE `questions` (
+CREATE TABLE `results` (
   `id` int(11) NOT NULL,
-  `question` text NOT NULL,
+  `score` int(11) NOT NULL,
+  `user_email` varchar(60) NOT NULL,
   `id_test` int(11) NOT NULL,
-  `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `upload_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subjects`
+-- Estructura de tabla para la tabla `subjects`
 --
 
 CREATE TABLE `subjects` (
   `id` int(11) NOT NULL,
-  `title` text,
-  `description` text,
+  `title` text NOT NULL,
+  `description` text NOT NULL,
   `tool` varchar(15) NOT NULL,
   `image` text NOT NULL,
   `link` text NOT NULL,
@@ -97,26 +131,15 @@ CREATE TABLE `subjects` (
   `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `subjects`
---
-
-INSERT INTO `subjects` (`id`, `title`, `description`, `tool`, `image`, `link`, `creation_date`, `update_date`) VALUES
-(16, 'Fundamentos de algoritmos computacionales', 'Desarrolla el pensamiento lógico y aprende a resolver problemas como un programador.', 'PsInt', '/img/materias/algorithm/index.svg', 'algorithm', '2022-08-29 00:46:18', NULL),
-(17, 'Diseño gráfico', 'Diseña para web, imprenta y retoque fotográfico con el software número 1 del diseño gráfico.', 'Photoshop', '/img/materias/design/index.svg', 'design', '2022-08-29 00:46:18', NULL),
-(18, 'Fundamentos de programación orientado a objetos', 'Implementa el paradigma de programación más utilizado.', 'Javascript', '/img/materias/coding/index.svg', 'coding', '2022-08-29 00:46:18', NULL),
-(19, 'Fundamentos de base de datos', 'Aprende el lenguaje SQL para, diseñar, crear y administrar la información de cualquier motor de base de datos relacional.', 'MySQL', '/img/materias/database/index.svg', 'database', '2022-08-29 00:46:18', NULL),
-(20, 'Administración y gestión del hardware y redes de computadoras', 'Comprende cómo funcionan las direcciones IP y los protocolos de red.', 'Cisco', '/img/materias/networks/index.svg', 'networks', '2022-08-29 00:46:18', NULL);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tests`
+-- Estructura de tabla para la tabla `tests`
 --
 
 CREATE TABLE `tests` (
   `id` int(11) NOT NULL,
-  `title` varchar(40) NOT NULL,
+  `title` text NOT NULL,
   `description` text NOT NULL,
   `id_subject` int(11) NOT NULL,
   `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -126,38 +149,30 @@ CREATE TABLE `tests` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `themes`
+-- Estructura de tabla para la tabla `themes`
 --
 
 CREATE TABLE `themes` (
   `id` int(11) NOT NULL,
-  `title` varchar(40) NOT NULL,
+  `title` text NOT NULL,
   `description` text NOT NULL,
   `id_subject` int(11) NOT NULL,
   `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `themes`
---
-
-INSERT INTO `themes` (`id`, `title`, `description`, `id_subject`, `creation_date`, `update_date`) VALUES
-(1, 'Conceptos de POO', 'Aprenderás la teoría detrás de todo el paradigma orientado a objetos.', 18, '2022-08-29 13:33:09', NULL),
-(2, 'Clases y objetos', 'Aplicaremos la abstracción como base fundamental en nuestro código.', 18, '2022-08-29 13:33:09', NULL);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `threads`
+-- Estructura de tabla para la tabla `threads`
 --
 
 CREATE TABLE `threads` (
   `id` int(11) NOT NULL,
-  `title` varchar(40) NOT NULL,
+  `title` text NOT NULL,
   `comment` text NOT NULL,
-  `user_email` varchar(40) NOT NULL,
-  `id_subject` int(11) NOT NULL,
+  `user_email` varchar(60) NOT NULL,
+  `id_video` int(11) NOT NULL,
   `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -165,268 +180,291 @@ CREATE TABLE `threads` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
-  `email` varchar(40) NOT NULL,
+  `email` varchar(60) NOT NULL,
   `account_pass` text NOT NULL,
   `creation_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`email`, `account_pass`, `creation_date`, `update_date`) VALUES
-('segundo.saavedrac@ug.edu.ec', '$2y$10$fOy1o2n9IsMt7MGuRfeMgugXIqFFjnvR5YCeyp7MQNbSH5R4Ix7Pm', '2022-08-28 20:49:00', NULL),
-('test@gmail.com', '$2y$10$T14sKrJ9JDwzw95zC2zStuv2lNRjl4kMChvRn.4V/jeVFgIzspA.a', '2022-08-28 20:51:54', NULL);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `videos`
+-- Estructura de tabla para la tabla `videos`
 --
 
 CREATE TABLE `videos` (
   `id` int(11) NOT NULL,
-  `title` varchar(40) NOT NULL,
+  `title` text NOT NULL,
   `duration` time NOT NULL,
   `src` text NOT NULL,
   `id_theme` int(11) NOT NULL,
-  `upload_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `upload_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `videos`
---
-
-INSERT INTO `videos` (`id`, `title`, `duration`, `src`, `id_theme`, `upload_date`, `update_date`) VALUES
-(1, 'Introducción', '00:04:55', 'https://www.youtube.com/embed/-LARK9JM3V4', 1, '2022-08-29 13:41:18', NULL),
-(2, 'Practica', '00:15:50', 'https://www.youtube.com/embed/FkdrYgHeSrE', 2, '2022-08-29 13:41:18', NULL),
-(3, 'POO y la abstracción', '00:10:50', 'https://www.youtube.com/embed/QkfffOM6uMI', 1, '2022-08-29 15:51:24', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `visits`
+-- Estructura de tabla para la tabla `visits`
 --
 
 CREATE TABLE `visits` (
   `id` int(11) NOT NULL,
-  `user_email` varchar(40) NOT NULL,
+  `user_email` varchar(60) NOT NULL,
   `visit_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `visits`
---
-
-INSERT INTO `visits` (`id`, `user_email`, `visit_date`) VALUES
-(1, 'test@gmail.com', '2022-08-28 20:51:55'),
-(2, 'segundo.saavedrac@ug.edu.ec', '2022-08-29 13:07:39');
-
---
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `anwsers`
+-- Indices de la tabla `anwsers`
 --
 ALTER TABLE `anwsers`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_question` (`id_question`);
+  ADD KEY `user_mention` (`user_mention`),
+  ADD KEY `user_email` (`user_email`),
+  ADD KEY `id_comment` (`id_comment`);
 
 --
--- Indexes for table `comments`
+-- Indices de la tabla `comments`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_mention` (`user_mention`,`user_email`,`id_thread`),
-  ADD KEY `user_mention_2` (`user_mention`),
+  ADD KEY `user_mention` (`user_mention`),
   ADD KEY `user_email` (`user_email`),
   ADD KEY `id_thread` (`id_thread`);
 
 --
--- Indexes for table `external`
+-- Indices de la tabla `options`
 --
-ALTER TABLE `external`
+ALTER TABLE `options`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_subject` (`id_subject`);
+  ADD KEY `id_question` (`id_question`);
 
 --
--- Indexes for table `questions`
+-- Indices de la tabla `questions`
 --
 ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_test` (`id_test`);
 
 --
--- Indexes for table `subjects`
+-- Indices de la tabla `resources`
+--
+ALTER TABLE `resources`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_subject` (`id_subject`);
+
+--
+-- Indices de la tabla `results`
+--
+ALTER TABLE `results`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_test` (`id_test`),
+  ADD KEY `user_email` (`user_email`);
+
+--
+-- Indices de la tabla `subjects`
 --
 ALTER TABLE `subjects`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tests`
+-- Indices de la tabla `tests`
 --
 ALTER TABLE `tests`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_subject` (`id_subject`);
 
 --
--- Indexes for table `themes`
+-- Indices de la tabla `themes`
 --
 ALTER TABLE `themes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_subject` (`id_subject`);
 
 --
--- Indexes for table `threads`
+-- Indices de la tabla `threads`
 --
 ALTER TABLE `threads`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_email` (`user_email`,`id_subject`),
-  ADD KEY `user_email_2` (`user_email`),
-  ADD KEY `id_subject` (`id_subject`);
+  ADD KEY `user_email` (`user_email`),
+  ADD KEY `id_video` (`id_video`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `videos`
+-- Indices de la tabla `videos`
 --
 ALTER TABLE `videos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_theme` (`id_theme`);
 
 --
--- Indexes for table `visits`
+-- Indices de la tabla `visits`
 --
 ALTER TABLE `visits`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_email` (`user_email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `anwsers`
+-- AUTO_INCREMENT de la tabla `anwsers`
 --
 ALTER TABLE `anwsers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `comments`
+-- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `external`
+-- AUTO_INCREMENT de la tabla `options`
 --
-ALTER TABLE `external`
+ALTER TABLE `options`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `questions`
+-- AUTO_INCREMENT de la tabla `questions`
 --
 ALTER TABLE `questions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `subjects`
+-- AUTO_INCREMENT de la tabla `resources`
 --
-ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+ALTER TABLE `resources`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tests`
+-- AUTO_INCREMENT de la tabla `results`
+--
+ALTER TABLE `results`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `subjects`
+--
+ALTER TABLE `subjects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tests`
 --
 ALTER TABLE `tests`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `themes`
+-- AUTO_INCREMENT de la tabla `themes`
 --
 ALTER TABLE `themes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `videos`
+-- AUTO_INCREMENT de la tabla `threads`
+--
+ALTER TABLE `threads`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `visits`
+-- AUTO_INCREMENT de la tabla `visits`
 --
 ALTER TABLE `visits`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `anwsers`
+-- Filtros para la tabla `anwsers`
 --
 ALTER TABLE `anwsers`
-  ADD CONSTRAINT `anwsers_ibfk_1` FOREIGN KEY (`id_question`) REFERENCES `questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `anwsers_ibfk_1` FOREIGN KEY (`user_mention`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `anwsers_ibfk_2` FOREIGN KEY (`user_email`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `anwsers_ibfk_3` FOREIGN KEY (`id_comment`) REFERENCES `comments` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `comments`
+-- Filtros para la tabla `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_email`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_mention`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_mention`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_email`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `comments_ibfk_3` FOREIGN KEY (`id_thread`) REFERENCES `threads` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `external`
+-- Filtros para la tabla `options`
 --
-ALTER TABLE `external`
-  ADD CONSTRAINT `external_ibfk_1` FOREIGN KEY (`id_subject`) REFERENCES `subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `options`
+  ADD CONSTRAINT `options_ibfk_1` FOREIGN KEY (`id_question`) REFERENCES `questions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `questions`
+-- Filtros para la tabla `questions`
 --
 ALTER TABLE `questions`
   ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`id_test`) REFERENCES `tests` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tests`
+-- Filtros para la tabla `resources`
+--
+ALTER TABLE `resources`
+  ADD CONSTRAINT `resources_ibfk_1` FOREIGN KEY (`id_subject`) REFERENCES `subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `results`
+--
+ALTER TABLE `results`
+  ADD CONSTRAINT `results_ibfk_1` FOREIGN KEY (`user_email`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `results_ibfk_2` FOREIGN KEY (`id_test`) REFERENCES `tests` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tests`
 --
 ALTER TABLE `tests`
   ADD CONSTRAINT `tests_ibfk_1` FOREIGN KEY (`id_subject`) REFERENCES `subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `themes`
+-- Filtros para la tabla `themes`
 --
 ALTER TABLE `themes`
   ADD CONSTRAINT `themes_ibfk_1` FOREIGN KEY (`id_subject`) REFERENCES `subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `threads`
+-- Filtros para la tabla `threads`
 --
 ALTER TABLE `threads`
   ADD CONSTRAINT `threads_ibfk_1` FOREIGN KEY (`user_email`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `threads_ibfk_2` FOREIGN KEY (`id_subject`) REFERENCES `subjects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `threads_ibfk_2` FOREIGN KEY (`id_video`) REFERENCES `videos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `videos`
+-- Filtros para la tabla `videos`
 --
 ALTER TABLE `videos`
   ADD CONSTRAINT `videos_ibfk_1` FOREIGN KEY (`id_theme`) REFERENCES `themes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `visits`
+-- Filtros para la tabla `visits`
 --
 ALTER TABLE `visits`
   ADD CONSTRAINT `visits_ibfk_1` FOREIGN KEY (`user_email`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
